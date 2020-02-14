@@ -31,8 +31,16 @@
               <h3 class="card-title">Titles</h3>
             </div>
             <!-- /.card-header -->
+            <div class="mt-3">
+              @if (count($errors) > 0)
+                @foreach ($errors->all() as $error)
+                  <p class="alert alert-danger">{{ $error }}</p>
+                @endforeach
+              @endif
+            </div>
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('post.store') }}" method="post">
+              {{ csrf_field() }}
               <div class="card-body">
                 <div class="row">
                   <div class="col-lg-6">
@@ -45,7 +53,7 @@
                       <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter sub title">
                     </div>
                     <div class="form-group">
-                      <label for="title">Post Slug</label>
+                      <label for="slug">Post Slug</label>
                       <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug">
                     </div>
                   </div>
