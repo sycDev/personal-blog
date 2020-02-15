@@ -31,16 +31,18 @@
               <h3 class="card-title">Titles</h3>
             </div>
             <!-- /.card-header -->
+            @include('includes.messages')
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('tag.store') }}" method="post">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
-                    <label for="tag">Tag Title</label>
-                    <input type="text" class="form-control" id="tag" name="tag" placeholder="Enter tag">
+                    <label for="name">Tag Title</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter tag" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                     <label for="title">Tag Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug">
+                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug"  value="{{ old('slug') }}">
                 </div>
               </div>
               <!-- /.card-body -->

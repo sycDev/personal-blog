@@ -31,16 +31,18 @@
               <h3 class="card-title">Titles</h3>
             </div>
             <!-- /.card-header -->
+            @include('includes.messages')
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ route('category.store') }}" method="post">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
-                    <label for="category">Category Title</label>
-                    <input type="text" class="form-control" id="category" name="category" placeholder="Enter category">
+                    <label for="name">Category Title</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter category" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
-                    <label for="title">Category Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug">
+                    <label for="slug">Category Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}">
                 </div>
               </div>
               <!-- /.card-body -->
