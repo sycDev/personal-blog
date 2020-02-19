@@ -49,6 +49,7 @@
               <!-- /.card -->
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ route('tag.index') }}" class="btn btn-warning">Back</a>
               </div>
             </form>
           </div>
