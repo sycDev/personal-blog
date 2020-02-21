@@ -1,5 +1,11 @@
 @extends('admin.layouts.app')
 
+@section('headSection')
+<!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('admin/plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+@endsection
+
 @section('main-content')
 
   <!-- Content Wrapper. Contains page content -->
@@ -55,21 +61,42 @@
   
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="image" name="image">
-                          <label class="custom-file-label" for="image">Choose file</label>
+                      <div class="float-right">
+                        <label for="exampleInputFile">File input</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image" name="image">
+                            <label class="custom-file-label" for="image">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="">Upload</span>
+                          </div>
                         </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text" id="">Upload</span>
-                        </div>
+                      </div>
+                      
+                      <div class="form-check float-left" style="margin-top: 30px">
+                        <input type="checkbox" class="form-check-input" id="status" name="status" value="1" @if ($post->status == 1) checked @endif>
+                        <label class="form-check-label" for="status">Publish</label>
                       </div>
                     </div>
                     <br>
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="status" name="status" @if ($post->status == 1) checked @endif>
-                      <label class="form-check-label" for="status">Publish</label>
+                    
+                    <div class="form-group" style="margin-top: 46px">
+                      <label>Select Tags</label>
+                      <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="tags[]">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 8px">
+                      <label>Select Category</label>
+                      <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" name="categories[]">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -113,10 +140,20 @@
 @endsection
 
 @section('footerSection')
+<!-- Select2 -->
+<script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
 <script>
-  $(function () {
+  $(document).ready(function(){
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    });
+
     // Summernote
-    $('.textarea').summernote()
-  })
+    $('.textarea').summernote();
+  });
 </script>
 @endsection
