@@ -82,7 +82,7 @@ class PostController extends Controller
     {
         $tags = tag::all();
         $categories = category::all();
-        $post = post::find($id);
+        $post = post::with('tags', 'categories')->find($id);
         return view('admin.post.edit', compact('post', 'tags', 'categories'));
     }
 
@@ -110,6 +110,7 @@ class PostController extends Controller
         $post->status = $request->status;
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
+        $post->save();
         
         return redirect(route('post.index'));
     }
