@@ -117,7 +117,7 @@
                 <!-- /.card-header -->
                 <div class="card-body pad">
                   <div class="mb-3">
-                    <textarea class="textarea" placeholder="Place some text here" name="body" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea name="body" id="editor1" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                   </div>
                 </div>
               </div>
@@ -141,6 +141,8 @@
 @section('footerSection')
 <!-- Select2 -->
 <script src="{{ asset('admin/plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- CKEditor -->
+<script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
 <script>
   $(document).ready(function(){
     //Initialize Select2 Elements
@@ -151,8 +153,8 @@
       theme: 'bootstrap4'
     });
 
-    // Summernote
-    $('.textarea').summernote()
+    // CKEditor
+    CKEDITOR.replace('editor1');
   })
 </script>
 @endsection
