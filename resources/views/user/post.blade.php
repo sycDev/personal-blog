@@ -21,16 +21,16 @@
             {{-- Category clouds --}}
             @foreach ($post->categories as $category)
                 <small class="float-right" style="margin-right: 10px;">
-                    {{ $category->name }}
+                    <a href="{{ route('category', $category->slug) }}">{{ $category->name }}</a>
                 </small>
             @endforeach
             {!! htmlspecialchars_decode($post->body) !!}
             {{-- Tag clouds --}}
             <h3>Tag Clouds</h3>
             @foreach ($post->tags as $tag)
-                <small class="float-left" style="margin-right: 10px; border-radius: 5px; border: 1px solid grey; padding: 5px;">
+                <a href="{{ route('tag', $tag->slug) }}"><small class="float-left" style="margin-right: 10px; border-radius: 5px; border: 1px solid grey; padding: 5px;">
                     {{ $tag->name }}
-                </small>
+                </small></a>
             @endforeach
         </div>
     </div>
