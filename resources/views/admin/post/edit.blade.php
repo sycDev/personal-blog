@@ -39,7 +39,7 @@
             <!-- /.card-header -->
             @include('includes.messages')
             <!-- form start -->
-            <form role="form" action="{{ route('post.update', $post->id) }}" method="post">
+            <form role="form" action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
               @csrf
               @method('PUT')
               <div class="card-body">
@@ -62,15 +62,13 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <div class="float-right">
-                        <label for="exampleInputFile">File input</label>
+                        <label for="image">File input</label>
                         <div class="input-group">
-                          <div class="custom-file">
+                          {{-- <div class="custom-file">
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="image">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text" id="">Upload</span>
-                          </div>
+                          </div> --}}
+                          <input type="file" id="image" name="image">
                         </div>
                       </div>
                       
