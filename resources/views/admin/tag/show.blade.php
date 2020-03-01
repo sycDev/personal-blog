@@ -14,12 +14,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Blank Page</h1>
+                    <h1>Tags</h1>
                 </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Blank Page</li>
+                    <li class="breadcrumb-item active">Tags</li>
                 </ol>
             </div>
             </div>
@@ -30,7 +30,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Tags</h3>
+                <h3 class="card-title"></h3>
                 <a class="offset-lg-5 btn btn-success" href="{{ route('tag.create') }}">Add New</a>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -43,10 +43,6 @@
             </div>
             <div class="card-body">
                 <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">DataTable with default features</h3>
-                    </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
