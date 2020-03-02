@@ -5,3 +5,9 @@
       @endforeach
     @endif
 </div>
+
+<div class="ml-3 mr-3">
+@if (session()->has('message'))
+    <p class="alert alert-success">{{ session('message') }}</p>
+@endif
+</div>
