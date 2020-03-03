@@ -50,6 +50,7 @@
                         <tr>
                           <th>S.No</th>
                           <th>Permission Name</th>
+                          <th>Permission For</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
@@ -59,6 +60,7 @@
                           <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $permission->name }}</td>
+                            <td>{{ $permission->for }}</td>
                             <td><a href="{{ route('permission.edit', $permission->id) }}"><i class="far fa-edit"></i></a></td>
                             <td>
                                 <form id="delete-form-{{ $permission->id }}" action="{{ route('permission.destroy', $permission->id) }}" method="post" style="display: none;">
@@ -80,6 +82,7 @@
                         <tr>
                           <th>S.No</th>
                           <th>Permission Name</th>
+                          <th>Permission For</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>

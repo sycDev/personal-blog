@@ -40,6 +40,38 @@
                     <label for="name">Role Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter role name" value="{{ old('name') }}">
                 </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <label for="">Posts Permission</label>
+                    @foreach ($permissions as $permission)
+                        @if ($permission->for == 'post')
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="{{ $permission->id }}"> {{ $permission->name }}</label>
+                          </div>
+                        @endif
+                    @endforeach
+                  </div>
+                  <div class="col-lg-4">
+                    <label for="">User Permission</label>
+                    @foreach ($permissions as $permission)
+                        @if ($permission->for == 'user')
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="{{ $permission->id }}"> {{ $permission->name }}</label>
+                          </div>
+                        @endif
+                    @endforeach
+                  </div>
+                  <div class="col-lg-4">
+                    <label for="">Other Permission</label>
+                    @foreach ($permissions as $permission)
+                        @if ($permission->for == 'other')
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="{{ $permission->id }}"> {{ $permission->name }}</label>
+                          </div>
+                        @endif
+                    @endforeach
+                  </div>
+                </div>
               </div>
               <!-- /.card-body -->
               <!-- /.card -->

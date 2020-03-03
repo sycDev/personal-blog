@@ -40,6 +40,15 @@
                     <label for="name">Permission Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter permission name" value="{{ old('name') }}">
                 </div>
+                <div class="form-group">
+                    <label for="for">Permission For</label>
+                    <select class="form-control" name="for" id="for">
+                      <option selected disabled>Select permission for</option>
+                      <option value="user">User</option>
+                      <option value="post">Post</option>
+                      <option value="other">Other</option>
+                    </select>
+                </div>
               </div>
               <!-- /.card-body -->
               <!-- /.card -->
