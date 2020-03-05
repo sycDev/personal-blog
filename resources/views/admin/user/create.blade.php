@@ -9,12 +9,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Text Editors</h1>
+            <h1></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Text Editors</li>
+              <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
+              <li class="breadcrumb-item">Users</li>
+              <li class="breadcrumb-item active">Add New User</li>
             </ol>
           </div>
         </div>
@@ -28,7 +29,7 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Titles</h3>
+              <h3 class="card-title">Add New User</h3>
             </div>
             <!-- /.card-header -->
             @include('includes.messages')
@@ -45,13 +46,26 @@
                     <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"  value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
+                  <label for="phone">User Phone</label>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone"  value="{{ old('phone') }}">
+                </div>
+                <div class="form-group">
                   <label for="password">User Password</label>
                   <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"  value="{{ old('password') }}">
                 </div>
                 <div class="form-group">
-                  <label for="comfirm_pass">Confirm Password</label>
-                  <input type="password" class="form-control" id="comfirm_pass" name="comfirm_pass" placeholder="Confirm your password"  value="{{ old('comfirm_pass') }}">
+                  <label for="password_confirmation">Confirm Password</label>
+                  <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm your password"  value="{{ old('password_confirmation') }}">
                 </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="status" value="1" @if (old('status') == 1)
+                        checked
+                    @endif> Status</label>
+                  </div>
+                </div>
+                
                 <div class="form-group">
                   <label for="role">Assign Role</label>
                   <div class="row">
