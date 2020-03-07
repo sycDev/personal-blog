@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +52,7 @@ class UserController extends Controller
         ]);
         $request['password'] = bcrypt($request->password);
         $user = admin::create($request->all());
+        $user->roles()->sync($request->role);
         return redirect(route('user.index'));
     }
 
@@ -88,7 +94,9 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255',
             'phone' => 'required|numeric'
         ]);
-        $user = admin::where('id', $id)->update($request->except('_token', '_method'));
+        $request->status ? : $request['status'] = 0;
+        $user = admin::where('id', $id)->update($request->except('_token', '_method', 'role'));
+        admin::find($id)->roles()->sync($request->role);
         return redirect(route('user.index'))->with('message', 'User updated successfully');
     }
 
