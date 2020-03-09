@@ -115,7 +115,7 @@
                 <!-- /.card-header -->
                 <div class="card-body pad">
                   <div class="mb-3">
-                    <textarea name="body" id="editor1" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea name="body" id="editor1" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('body') }}</textarea>
                   </div>
                 </div>
               </div>

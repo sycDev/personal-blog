@@ -32,18 +32,22 @@
               <p>Posts</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('category.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Categories</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('tag.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Tags</p>
-            </a>
-          </li>
+          @can('posts.category', Auth::user())
+            <li class="nav-item">
+              <a href="{{ route('category.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Categories</p>
+              </a>
+            </li>
+          @endcan
+          @can('posts.tag', Auth::user())
+            <li class="nav-item">
+              <a href="{{ route('tag.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Tags</p>
+              </a>
+            </li>
+          @endcan
           <li class="nav-item">
             <a href="{{ route('user.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
