@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Auth;
 // User Routes
 Route::group(['namespace' => 'User'], function () {
     Route::get('/', 'HomeController@index')->name('user.home');
-    Route::get('/post/{post}', 'PostController@post')->name('post');
+    Route::get('/post/{post:slug}', 'PostController@post')->name('post');
 
-    Route::get('post/tag/{tag}', 'HomeController@tag')->name('tag');
-    Route::get('post/category/{category}', 'HomeController@category')->name('category');
+    Route::get('post/tag/{tag:slug}', 'HomeController@tag')->name('tag');
+    Route::get('post/category/{category:slug}', 'HomeController@category')->name('category');
 });
 
 // Admin Routes
